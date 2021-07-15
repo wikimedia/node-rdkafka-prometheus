@@ -1,13 +1,16 @@
+/* eslint-env mocha */
+'use strict';
+
 const expect = require('chai').expect;
 
-const RdkafkaStats = require('..');
+const RdkafkaPrometheus = require('..');
 
-describe('RdkafkaStats', () => {
+describe('RdkafkaPrometheus', () => {
 	describe('metrics', () => {
 		it('indexes metrics by name', () => {
-			const stat = new RdkafkaStats({});
-			Object.keys(stat.metrics).forEach(metricKey => {
-				expect(stat.metrics[metricKey].name).to.be.equal(`rdkafka_${metricKey.toLowerCase()}`);
+			const rdkafkaPrometheus = new RdkafkaPrometheus({});
+			Object.keys(rdkafkaPrometheus.metrics).forEach((metricKey) => {
+				expect(rdkafkaPrometheus.metrics[metricKey].name).to.be.equal(`rdkafka_${metricKey.toLowerCase()}`);
 			});
 		});
 	});

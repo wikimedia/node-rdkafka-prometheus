@@ -7,14 +7,29 @@ Helper for exposing node-rdkafka statistics through prometheus
 ## Usage
 
 ```js
-const RdkafkaStats = require('node-rdkafka-prometheus');
+const RdkafkaPrometheus = require('node-rdkafka-prometheus');
 const prometheus = require('prom-client');
+
+const rdkafkaPrometheus= new RdkafkaPrometheus({
+  // It is recommended that you pass in your require of prom-client to
+  // RdkafkaPrometheus, as prom-client does not work well when it is required
+  // more than once in the same process.
+  // If you don't provide this, RdkafkaPrometheus will require('prom-client') itself.
+  prometheus: prometheus, // optional
+  extraLabels: { my_custom_label: 'label_value' },  // optional
+  namePrefix: 'metric_name_prefix'  // optional
+  // registers: [prometheus.register] // optional, this is the default.
+})
 
 // When setting up a consumer or producer:
 const stream = rdkafka.KafkaConsumer.createReadStream({'statistics.interval.ms': 1000});
 stream.consumer.on('event.stats', msg => {
   const stats = JSON.parse(msg.message);
-  this.metrics.RDKAFKA_STATS.observe(stats);
+  // Optional: override the default label value for any declared extraLabels.
+  // If you use extraLabels here, the keys must have already been declared
+  // in the extraLables RdkafaStats contructor option.
+  const extraLabels = { my_custom_label: 'special_label_value' };
+  rdkafkaPrometheus.observe(stats, extraLabels);
 });
 ```
 
