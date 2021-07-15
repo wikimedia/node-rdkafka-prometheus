@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "prepublish": "npm run lint",
-    "test": "mocha test/**/*.spec.js"
+    "test": "mocha test/**/*.spec.js && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -21,6 +20,9 @@
     "statistics"
   ],
   "author": "Andreas Kohn <andreas.kohn@gmail.com>",
+  "contributors": [
+    "Andrew Otto <otto@wikimedia.org>"
+  ],
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/wikimedia/node-rdkafka-prometheus/issues"
@@ -31,9 +33,8 @@
     "prom-client": "^12.0.0"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "eslint": "^5.16.0",
-    "eslint-config-collaborne": "^1.5.0",
-    "mocha": "^5.0.1"
+    "chai": "^4.3.0",
+    "eslint-config-wikimedia": "0.20.0",
+    "mocha": "^5.2.0"
   }
 }
