@@ -1,5 +1,5 @@
 {
-  "name": "node-rdkafka-prometheus",
+  "name": "@wikimedia/node-rdkafka-prometheus",
   "version": "1.0.0",
   "description": "Helper for exposing node-rdkafka statistics through prometheus",
   "main": "index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Collaborne/node-rdkafka-prometheus.git"
+    "url": "git+https://github.com/wikimedia/node-rdkafka-prometheus.git"
   },
   "keywords": [
     "node-rdkafka",
@@ -23,9 +23,9 @@
   "author": "Andreas Kohn <andreas.kohn@gmail.com>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/Collaborne/node-rdkafka-prometheus/issues"
+    "url": "https://github.com/wikimedia/node-rdkafka-prometheus/issues"
   },
-  "homepage": "https://github.com/Collaborne/node-rdkafka-prometheus#readme",
+  "homepage": "https://github.com/wikimedia/node-rdkafka-prometheus#readme",
   "dependencies": {
     "@log4js-node/log4js-api": "^1.0.0",
     "prom-client": "^12.0.0"
