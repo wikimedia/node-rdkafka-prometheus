@@ -690,7 +690,7 @@ class RdkafkaPrometheus {
             }
         }
 
-        this._translateRdkafkaPrometheus(stats, extraLabels = {});
+        this._translateRdkafkaPrometheus(stats, extraLabels);
     }
 }
 
